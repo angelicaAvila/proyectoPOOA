@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import juego.vista.panel.PantallaJuego;
 import juego.vista.panel.PantallaPrincipal;
 
 import java.awt.CardLayout;
@@ -17,11 +18,21 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Display extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panelJuego ;
+	public JPanel getPanelJuego() {
+		return panelJuego;
+	}
+
+	public void setPanelJuego(JPanel panelJuego) {
+		this.panelJuego = panelJuego;
+	}
+
 	private int ancho;
 	private int alto;
 	private String titulo;
@@ -87,13 +98,6 @@ public class Display extends JFrame {
 		panelBotones.setBackground(Color.DARK_GRAY);
 		contentPane.add(panelBotones, BorderLayout.SOUTH);
 		
-		btnPlay = new JButton("PLAY");
-		btnPlay.setBackground(Color.RED);
-		btnPlay.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnPlay.setActionCommand("play");
-		//btnPlay.addActionListener(ctlBotones);
-		panelBotones.add(btnPlay);
-		
 		panelJuego = new JPanel();
 		contentPane.add(panelJuego, BorderLayout.CENTER);
 		panelJuego.setLayout(new CardLayout(0, 0));
@@ -102,10 +106,28 @@ public class Display extends JFrame {
 		inicio.setBackground(Color.DARK_GRAY);
 		panelJuego.add(inicio,"PACMAN");
 		
-	//	canvas = new Canvas();
-	//	canvas.setSize(ancho, alto);
-	//	add(canvas);
-	//	pack();
+		PantallaJuego pacman = new PantallaJuego();
+		panelJuego.add(pacman,"PACMANJuego");
+		
+		btnPlay = new JButton("PLAY");
+		btnPlay.setForeground(Color.DARK_GRAY);
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CardLayout c= (CardLayout)panelJuego.getLayout();
+				c.show(panelJuego, "PACMANJuego");
+				pacman.setFocusable(true);
+				btnPlay.setFocusable(false);
+				btnPlay.setEnabled(false);
+				btnPlay.setBackground(Color.DARK_GRAY);
+				btnPlay.setText("");
+			}
+		});
+		btnPlay.setBackground(Color.RED);
+		btnPlay.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnPlay.setActionCommand("play");
+		//btnPlay.addActionListener(ctlBotones);
+		panelBotones.add(btnPlay);
+		
 	}
 	
 

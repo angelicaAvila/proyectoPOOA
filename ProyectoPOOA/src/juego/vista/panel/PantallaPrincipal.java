@@ -5,9 +5,17 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import juego.vista.Display;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 
 public class PantallaPrincipal extends JPanel {
 
@@ -17,6 +25,7 @@ public class PantallaPrincipal extends JPanel {
 	public PantallaPrincipal() {
 
 	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		

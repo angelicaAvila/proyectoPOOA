@@ -2,7 +2,6 @@ package juego.vista;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import juego.manager.KeyManager;
 import juego.manager.Recursos;
 
 public class Game implements Runnable{
@@ -15,7 +14,7 @@ public class Game implements Runnable{
 	private Thread t;
 	private BufferStrategy bs;
 	private Graphics g;
-	private KeyManager km;
+	//private KeyManager km;
 	private Escenario escenario;
 	private Jugador jugador;
 	
@@ -24,7 +23,7 @@ public class Game implements Runnable{
 		this.ancho = ancho;
 		this.alto = alto;
 		this.titulo = titulo;
-		km = new KeyManager();
+	//	km = new KeyManager();
 	}
 	
 	public void init() {
@@ -63,9 +62,9 @@ public class Game implements Runnable{
 		this.ancho = ancho;
 	}
 
-	public KeyManager getKm() {
+	/*public KeyManager getKm() {
 		return km;
-	}
+	}*/
 
 	public int getAlto() {
 		return alto;
