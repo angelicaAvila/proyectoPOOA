@@ -24,9 +24,6 @@ public class PantallaJuego extends JPanel {
 		nivelJuego=new nivel();
 		Cell[][] cells=nivelJuego.getCells();
 		
-		
-		
-		
 		*/
 		
 		JPanel panel = new JPanel();
