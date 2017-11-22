@@ -12,12 +12,22 @@ import javax.swing.border.LineBorder;
 
 public class PantallaJuego extends JPanel {
 
+	private static nivel nivelJuego;
+	
 	public PantallaJuego() {
 		init();
 	}
 	
 	public void init() {
 		setLayout(new BorderLayout(0, 0));
+	/*	
+		nivelJuego=new nivel();
+		Cell[][] cells=nivelJuego.getCells();
+		
+		
+		
+		
+		*/
 		
 		JPanel panel = new JPanel();
 		panel.setForeground(Color.GRAY);
